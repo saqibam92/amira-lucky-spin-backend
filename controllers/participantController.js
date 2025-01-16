@@ -43,7 +43,7 @@ exports.addAnswers = async (req, res) => {
     }
 
     // Add the answer to the participant's answers array
-    participant.result.push({ question, selectedOption});
+    participant.answers.push({ question, selectedOption});
     await participant.save();
 
     res.status(200).json({ message: "Answer added successfully", participant });

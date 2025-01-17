@@ -31,7 +31,7 @@ exports.addAnswers = async (req, res) => {
   const { mobile, question, selectedOption } = req.body;
 
   try {
-    console.log("Request body:", req.body); // Debug incoming request
+    // console.log("Request body:", req.body); // Debug incoming request
 
     // Find the participant by mobile number
     const participant = await Participant.findOne({ mobile });
@@ -42,7 +42,7 @@ exports.addAnswers = async (req, res) => {
 
     // Add the answer to the participant's answers array
     participant.answers.push({ question, selectedOption });
-    console.log("Updated participant:", participant); // Debug before saving
+    // console.log("Updated participant:", participant); // Debug before saving
     await participant.save();
 
     res.status(200).json({ message: "Answer added successfully", participant });
